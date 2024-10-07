@@ -1,0 +1,41 @@
+﻿<Window x:Class="Grafika.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Grafika" Height="450" Width="800">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Left" Width="120" Margin="5">
+                <GroupBox Header="Narzędzia">
+                    <StackPanel Orientation="Vertical">
+                        <RadioButton Content="Kursor" GroupName="Tools" Checked="Cursor_Checked"/>
+                        <RadioButton Content="Linia" GroupName="Tools" Checked="Line_Checked"/>
+                        <RadioButton Content="Prostokąt" GroupName="Tools" Checked="Rectangle_Checked"/>
+                        <RadioButton Content="Okrąg" GroupName="Tools" Checked="Circle_Checked"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Współrzędne" Margin="0,10,0,0">
+                    <StackPanel>
+                        <Label Content="Współrzędna X1"/>
+                        <TextBox x:Name="XStart" Text=""/>
+                        <Label Content="Współrzędna Y1"/>
+                        <TextBox x:Name="YStart" Text=""/>
+                        <Label Content="Współrzędna X2"/>
+                        <TextBox x:Name="XEnd" Text=""/>
+                        <Label Content="Współrzędna Y2"/>
+                        <TextBox x:Name="YEnd" Text=""/>
+                        <Button Content="Rysuj" Click="DrawShape_Click" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+                <Button Content="Zapisz" Click="SaveButton_Click" Margin="0,10,0,0"/>
+                <Button Content="Wczytaj" Click="LoadButton_Click" Margin="0,10,0,0"/>
+            </StackPanel>
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="5">
+                <Canvas x:Name="DrawingArea" Background="White"
+                     MouseLeftButtonDown="DrawingArea_MouseLeftButtonDown"
+                     MouseMove="DrawingArea_MouseMove"
+                     MouseLeftButtonUp="DrawingArea_MouseLeftButtonUp"
+                     Width="600" Height="400"/>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>
